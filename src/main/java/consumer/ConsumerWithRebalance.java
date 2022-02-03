@@ -27,6 +27,8 @@ public class ConsumerWithRebalance {
 
     private static KafkaConsumer<String, String> consumer;
 
+    private static Map<TopicPartition, OffsetAndMetadata> currentOffset;
+
     public static void main(String[] args) {
         // 런타임에 훅을 넣어주어야 합니다!
         Runtime.getRuntime().addShutdownHook(new ShutdownThread());
@@ -53,7 +55,7 @@ public class ConsumerWithRebalance {
                 ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(1));
 
                 // 커밋을 위한 offset 정보
-                Map<TopicPartition, OffsetAndMetadata> currentOffset = new HashMap<>();
+                currentOffset = new HashMap<>();
 
                 for (ConsumerRecord<String, String> record : records) {
                     // ConsumerRecord(topic = hello.kafka, partition = 2, leaderEpoch = 0, offset = 2, CreateTime = 1643813098898, serialized key size = -1, serialized value size = 11, headers = RecordHeaders(headers = [], isReadOnly = false), key = null, value = testMessage)
@@ -82,6 +84,7 @@ public class ConsumerWithRebalance {
         @Override
         public void onPartitionsRevoked(Collection<TopicPartition> partitions) {
             logger.warn("partitions are assigned");
+            consumer.commitSync(currentOffset);
         }
 
         // 리밸런싱이 끝나고
