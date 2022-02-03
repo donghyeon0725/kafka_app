@@ -83,14 +83,14 @@ public class ConsumerWithRebalance {
         // 리밸런싱이 일어나기 전에
         @Override
         public void onPartitionsRevoked(Collection<TopicPartition> partitions) {
-            logger.warn("partitions are assigned");
+            logger.warn("partitions are revoked");
             consumer.commitSync(currentOffset);
         }
 
         // 리밸런싱이 끝나고
         @Override
         public void onPartitionsAssigned(Collection<TopicPartition> partitions) {
-            logger.warn("partition are revoked");
+            logger.warn("partition are assigned");
 
         }
     }
