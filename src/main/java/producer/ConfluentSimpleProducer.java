@@ -24,6 +24,7 @@ public class ConfluentSimpleProducer {
 
 
     public static void createTopic(final String topic, final Properties cloudConfig) {
+
         final NewTopic newTopic = new NewTopic(topic, Optional.empty(), Optional.empty());
         try (final AdminClient adminClient = AdminClient.create(cloudConfig)) {
             adminClient.createTopics(Collections.singletonList(newTopic)).all().get();

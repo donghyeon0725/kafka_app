@@ -1,24 +1,24 @@
-producer/ProducerCallback.java
- producer.ProducerCallback
-producer/CustomPartitioner.java
- producer.CustomPartitioner
-producer/SimpleProducer.java
- producer.SimpleProducer
-producer/ProducerWithCustomPartitioner.java
- producer.ProducerWithCustomPartitioner
 consumer/ConsumerWithSyncCommitAll.java
  consumer.ConsumerWithSyncCommitAll
-consumer/SimpleConsumer.java
- consumer.SimpleConsumer
 consumer/ConsumerWithSyncCommit.java
  consumer.ConsumerWithSyncCommit
+consumer/SimpleConsumer.java
+ consumer.SimpleConsumer
 consumer/ConsumerWithAsyncCommitAll.java
  consumer.ConsumerWithAsyncCommitAll
  consumer.ConsumerWithAsyncCommitAll$1
+consumer/ConsumerAssignedToPartition.java
+ consumer.ConsumerAssignedToPartition
+producer/ProducerCallback.java
+ producer.ProducerCallback
+producer/ProducerWithCustomPartitioner.java
+ producer.ProducerWithCustomPartitioner
+producer/CustomPartitioner.java
+ producer.CustomPartitioner
 consumer/ConsumerWithRebalance.java
  consumer.ConsumerWithRebalance
  consumer.ConsumerWithRebalance$1
  consumer.ConsumerWithRebalance$RebalanceListener
  consumer.ConsumerWithRebalance$ShutdownThread
-consumer/ConsumerAssignedToPartition.java
- consumer.ConsumerAssignedToPartition
+producer/SimpleProducer.java
+ producer.SimpleProducer
